@@ -10,6 +10,8 @@ import {connectVehicle} from './Home.scripts';
 import Spinner from '../../components/Spinner/Spinner';
 import {SocketProps} from '../../interfaces/main.interface';
 
+const {primary, tertiary} = Object(global.ThemeCore.colors);
+
 export default function Home({
   setView,
   socket,
@@ -37,7 +39,7 @@ export default function Home({
   }, [serverIP]);
 
   return (
-    <View>
+    <View style={styles.sectionContainer}>
       <Text style={styles.sectionTitle}>RC Vehicle</Text>
       <Text style={styles.sectionDescription}>Choose a vehicle to connect</Text>
 
@@ -46,9 +48,12 @@ export default function Home({
         style={styles.inputText}
         value={serverIP}
         onChangeText={text => setServerIP(text)}
+        underlineColor={tertiary}
       />
       <Button
         mode="contained"
+        textColor={primary}
+        style={styles.button}
         onPress={() => {
           setSpinner(true);
 
@@ -59,7 +64,6 @@ export default function Home({
                 setView('vehicle-1');
                 setSpinner(false);
 
-                console.log(JSON.stringify(res, null, 2));
                 socket.on('connect', () => {
                   console.log('Vehicle socket connection opened!');
                 });
@@ -81,7 +85,7 @@ export default function Home({
               throw err;
             });
         }}>
-        Otter V1
+        CONNECT TO VEHICLE
       </Button>
 
       <Spinner visible={spinner} />
