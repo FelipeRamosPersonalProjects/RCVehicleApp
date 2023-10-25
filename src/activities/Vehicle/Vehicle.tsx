@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
-import {Slider} from '@miblanchard/react-native-slider';
+// import Slider from '@react-native-community/slider';
 import {Socket} from 'socket.io-client';
 
 import localStyles from './Vehicle.style';
@@ -29,32 +29,32 @@ export default function Vehicle({socket}: VehicleProps): JSX.Element {
 
   return (
     <View style={localStyles.wrapperCtrls}>
-      <Slider
+      {/* <Slider
         value={steering}
         minimumValue={-100}
         maximumValue={100}
-        startFromZero={true}
-        containerStyle={{
-          ...localStyles.sliderContainer,
-          ...localStyles.steeringCtrl,
-        }}
-        thumbStyle={localStyles.sliderThumb}
+        // startFromZero={true}
+        // containerStyle={{
+        //   ...localStyles.sliderContainer,
+        //   ...localStyles.steeringCtrl,
+        // }}
+        // thumbStyle={localStyles.sliderThumb}
         onValueChange={value => setSteering(Number(value))}
         onSlidingComplete={() => setSteering(0)}
-      />
+      /> */}
 
-      <Slider
+      {/* <Slider
         value={acceleration}
         vertical={true}
         minimumValue={0}
         maximumValue={100}
-        containerStyle={{
-          ...localStyles.sliderContainer,
-          ...localStyles.accelerationCtrl,
-        }}
-        thumbStyle={localStyles.sliderThumb}
+        // containerStyle={{
+        //   ...localStyles.sliderContainer,
+        //   ...localStyles.accelerationCtrl,
+        // }}
+        // thumbStyle={localStyles.sliderThumb}
         onValueChange={value => setAcceleration(Number(value))}
-      />
+      /> */}
     </View>
   );
 }

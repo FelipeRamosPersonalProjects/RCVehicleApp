@@ -10,7 +10,7 @@ import styles from './src/styles/main.style';
 const {primaryDark} = Object(global.ThemeCore.colors);
 
 export default function App(): JSX.Element {
-  const [view, setView] = useState('initial');
+  const [view, setView] = useState('vehicle-1');
   const [socket, setSocket] = useState(io);
 
   return (
